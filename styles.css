@@ -1,0 +1,88 @@
+body {
+  border: solid grey;
+  border-width: 4px;
+  margin: 60px auto;
+  max-width: 600px;
+  display: block;
+  padding: 10px;
+  color: #555555;
+  font-family: "Quicksand", sans-serif;
+}
+
+form {
+  width: 100%;
+}
+
+.form-control {
+  border-color: #feca2c;
+}
+
+h1 {
+}
+
+h2 {
+  font-size: medium;
+}
+h3 {
+  font-size: smaller;
+}
+
+.col-2 {
+  padding: 0;
+}
+.box {
+  float: right;
+  border: solid #feca2c;
+  background: #feca2c;
+  text-align: center;
+  margin: 0 13px 0 0;
+  padding: 10px 20px;
+  border-radius: 40px;
+  color: #fff;
+}
+
+.box1 {
+  text-align: center;
+  display: block;
+  padding: 10px 20px;
+  width: fit-content;
+  margin: 80px 0 0 40px;
+}
+
+.nav {
+  background: #e6d5b8;
+}
+
+.nav-link {
+  color: #555555;
+}
+
+.dias {
+  margin: 20px auto;
+  text-align: center;
+  padding: 40px 30px;
+  border: solid #bbbbbb;
+}
+
+.grid-temp {
+  color: #bbbbbb;
+  font-size: 19px;
+}
+
+.semana {
+  font-weight: bold;
+}
+
+.sun-icon {
+  color: #f0a500;
+  font-size: 90px;
+}
+
+.footer {
+  color: #555555;
+  text-align: center;
+}
+
+.insta {
+  color: #555555;
+}
