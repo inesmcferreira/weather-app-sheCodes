@@ -47,6 +47,7 @@ h3 {
   padding: 10px 20px;
   width: fit-content;
   margin: 80px 0 0 40px;
+  text-transform: capitalize;
 }
 
 .nav {
@@ -75,7 +76,7 @@ h3 {
 
 .sun-icon {
   color: #f0a500;
-  font-size: 90px;
+  font-size: 80px;
 }
 
 .footer {

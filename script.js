@@ -6,6 +6,8 @@ function showGraus(response){
   grausElement.innerHTML = `${Math.round(response.data.main.temp)}ºC`;
   let tempo = document.querySelector("#tempo");
   tempo.innerHTML = `${Math.round(response.data.main.feels_like)}º`
+  let description = document.querySelector("#description");
+  description.innerHTML = response.data.weather[0].description;
  let vento = document.querySelector("#vento");
  vento.innerHTML= `${Math.round(response.data.wind.speed)} mph`;
  let sunrise = document.querySelector("#sunrise");
