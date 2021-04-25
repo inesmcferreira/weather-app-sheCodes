@@ -27,8 +27,17 @@ h3 {
   font-size: smaller;
 }
 
+#cidade {
+  font-size: 35px;
+}
+#nove {
+  font-size: 40px;
+}
+
 #graus {
-  color: blue;
+  font-size: 15px;
+  position: relative;
+  top: -17px;
 }
 
 .col-2 {
