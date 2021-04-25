@@ -2,7 +2,7 @@ let apiKey = "121052a00f6df00e4ae65743dbad7c03";
 
 function showGraus(response){
   console.log(response.data);
-  let grausElement = document.querySelector("#graus");
+  let grausElement = document.querySelector("#nove");
   grausElement.innerHTML = `${Math.round(response.data.main.temp)}ºC`;
   let tempo = document.querySelector("#tempo");
   tempo.innerHTML = `${Math.round(response.data.main.feels_like)}º`
@@ -59,7 +59,7 @@ let form = document.querySelector("#formulario");
 form.addEventListener("submit", city);
  
 
-
+/*
 function celsiu(event){
   let farhneit =document.querySelector ("#graus");
   farhneit.innerHTML = "32ºF";
@@ -67,7 +67,7 @@ function celsiu(event){
 
 let celsiustof =document.querySelector ("#graus")
 celsiustof.addEventListener("click", celsiu)
-
+*/
 
 
 
