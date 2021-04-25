@@ -1,4 +1,4 @@
-let apiKey = "a0333546f9139a7fdad3f4f95d470a74";
+let apiKey = "121052a00f6df00e4ae65743dbad7c03";
 
 function showGraus(response){
   console.log(response.data);
@@ -9,11 +9,22 @@ function showGraus(response){
   let description = document.querySelector("#description");
   description.innerHTML = response.data.weather[0].description;
  let vento = document.querySelector("#vento");
- vento.innerHTML= `${Math.round(response.data.wind.speed)} mph`;
+ vento.innerHTML= `${Math.round(response.data.wind.speed)} Km/H`;
+ let precipitation = document.querySelector("#precipitation");
+ if (response.data.rain != undefined){
+ precipitation.innerHTML =`${response.data.rain["1h"]}%`;}
+ else{
+   precipitation.innerHTML = "0%"
+ }
+
+ /*
  let sunrise = document.querySelector("#sunrise");
  sunrise.innerHTML = response.data.sys.sunrise;
 let sunset = document.querySelector("#sunset");
- sunset.innerHTML = response.data.sys.sunset;
+ sunset.innerHTML = response.data.sys.sunset; 
+ */
+ let icon  = document.querySelector ("#icon")
+ icon.setAttribute("src" , `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
 }
 
 let data = new Date();
@@ -23,7 +34,6 @@ let h2 = document.querySelector("h2")
 
 let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
       let day = days[data.getDay()];
-
       let date = data.getDate();
       let month = data.getMonth();
       let hours = data.getHours();
@@ -62,6 +72,7 @@ celsiustof.addEventListener("click", celsiu)
 
 
  function cityFromName(citySearch){
+   console.log(citySearch.data.name)
   let h1_cidade = document.querySelector("#cidade");
   h1_cidade.innerHTML = `${citySearch.data.name}`;
 
@@ -70,6 +81,8 @@ celsiustof.addEventListener("click", celsiu)
 function current (position){
 let lat =position.coords.latitude;
 let lon =position.coords.longitude;
+console.log(lat);
+console.log(lon);
 let apiCity = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
 axios.get(`${apiCity}&appid=${apiKey}`).then(showGraus);
 axios.get(`${apiCity}&appid=${apiKey}`).then(cityFromName);
