@@ -87,6 +87,12 @@ h3 {
   font-weight: bold;
 }
 
+.temp-minima {
+  opacity: 0.6;
+}
+
+.temp-maxima {
+}
 .sun-icon {
   color: #f0a500;
   font-size: 80px;
