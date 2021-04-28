@@ -1,5 +1,31 @@
 let apiKey = "121052a00f6df00e4ae65743dbad7c03";
 
+function displayForecast(){
+  let forecastElement = document.querySelector("#forecast");
+  
+  let forecastHTML = `<div class="row dias">`;
+  let days = ["THU", "FRI", "SAT", "SUN", "MON", "TUE"];
+  days.forEach(function(day){
+  forecastHTML = 
+  forecastHTML + `
+        <div class="col-2">
+          <span class="semana">${day}</span>
+          <p>
+            14/03
+            <br />
+            <i class="fas fa-sun grid-temp"></i>
+            <br />
+            <span class ="temp-maxima">17º | </span>
+            <span class="temp-minima">7º</span>
+          </p>
+          </div>
+      `;
+      });
+  
+forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function showGraus(response){
   console.log(response.data);
   let grausElement = document.querySelector("#nove");
@@ -89,7 +115,7 @@ axios.get(`${apiCity}&appid=${apiKey}`).then(cityFromName);
 
 }
 
-
+displayForecast();
 
 function showCurrent(){
  navigator.geolocation.getCurrentPosition(current); 
