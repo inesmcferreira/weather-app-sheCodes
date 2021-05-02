@@ -1,38 +1,52 @@
 let apiKey = "121052a00f6df00e4ae65743dbad7c03";
 
+function formatDay(timestamp){
+  let date = new Date(timestamp*1000)
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+
+  return days[day];
+
+
+}
+
+
+
 function displayForecast(response){
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   
   let forecastHTML = `<div class="row dias">`;
-  let days = ["THU", "FRI", "SAT", "SUN", "MON", "TUE"];
-  days.forEach(function(day){
+  forecast.forEach(function(forecastDay,index){
+    if (index < 6){
   forecastHTML = 
   forecastHTML + `
         <div class="col-2">
-          <span class="semana">${day}</span>
-          <p>
-            14/03
+          <span class="semana">${formatDay(forecastDay.dt)}</span>
             <br />
-            <i class="fas fa-sun grid-temp"></i>
+           
+            <img src = "http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" width="40"></img>
             <br />
-            <span class ="temp-maxima">17º | </span>
-            <span class="temp-minima">7º</span>
+            <span class ="temp-maxima">${Math.round(forecastDay.temp.max)}º | </span>
+            <span class="temp-minima">${Math.round(forecastDay.temp.min)}º</span>
           </p>
           </div>
       `;
+    }
       });
-  
 forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
+
+
+
 
 
 function getForecast (coordinates){
   console.log(coordinates);
   let apiKey = "121052a00f6df00e4ae65743dbad7c03";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-
+  console.log(apiUrl);
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -134,6 +148,8 @@ function showCurrent(){
 }
 let button= document.querySelector("#tempocurrente");
 button.addEventListener ("click", showCurrent);
+
+showCurrent();
 
 /*
  let horasSol = response.data.sys.sunrise;
